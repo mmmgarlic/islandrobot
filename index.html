@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thirsty Robot – Island</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="https://cdn.glitch.global/c4b78eb3-58d6-4c67-b0f8-bcde8dabcdc7/desert-island.png?v=1737738414529">
+</head>
+<body>
+  <a href="https://thirstyrobots.glitch.me/" class="top-left-link">Thirsty Robot</a>
+  <div id="cliff">
+    <div id="chatInterface">
+      <div id="chatMessages"></div>
+
+      <div id="loadingIndicator" style="display: none;">Loading...</div>
+      
+
+      <div id="inputContainer">
+        
+        <input id="user-input" type="text" autocomplete="off" placeholder="Type a message..." />
+        
+        <button id="send-btn">Send</button>
+                        <button id="resetChatBtn" class="chat-button">Reset Chat</button>
+
+        <div id="loadingSpinner" style="display: none;"></div>
+      </div>
+    </div>
+  </div>
+  <div id="water"></div>
+  <div id="waterCounter">Water Used: 0 mL</div>
+  <button id="music-toggle">
+    <span class="strikethrough">♫</span>
+  </button>
+ <div id="blue-screen-text" class="hidden">
+  You have reached the blue screen of death! ☠<br>
+  <span class="smaller-text">(But you could just reload to try again.)</span>
+</div>
+  <div id="top-links">
+  <a href="#" id="about-link">About</a>
+  <a href="#" id="usage-link">Usage Statements</a>
+</div>
+
+<div id="aboutPopup" class="popup hidden">
+    <div class="popup-close" id="closeAbout">X</div>
+    <h1>About</h1>
+    <h2>What is water usage due to AI?</h2>
+    <p class="small-text">AI models, especially large ones, consume significant amounts of water for cooling data centers and manufacturing hardware for AI systems. While estimates vary, independent studies show that AI systems, like GPT models, can consume up to several bottles of water per query. The true scale of AI’s water footprint remains hard to pinpoint due to a lack of transparency from the companies behind these technologies. This growing environmental impact is concerning, especially as AI continues to scale.</p>
+    <h2>What is the goal of this project?</h2>
+    <p class="small-text">The goal is to raise awareness about the environmental costs of AI, especially its water usage. While AI itself isn't inherently harmful, the companies promoting these technologies often downplay their environmental impact. By educating consumers about AI's water consumption, we can make more mindful choices and potentially reduce overall usage.</p>
+    <h2>Aren't these companies trying to be sustainable?</h2>
+    <p class="small-text">AI companies claim sustainability, but the reality is more complex. AI’s water usage is staggering, with demand potentially requiring 4.2 to 6.6 billion cubic meters of water by 2027 — more than 4-6x the total annual water withdrawal of Denmark. Despite claims of sustainability, the environmental impact, particularly water consumption, is significant and will continue to grow, urging a closer look at AI's true sustainability practices.</p>
+</div>
+
+<div id="usageStatementsPopup" class="popup hidden">
+    <div class="popup-close" id="closeUsageStatements">X</div>
+    <h2>How is the water usage per token calculated?</h2>
+    <p class="small-text">
+        Large language models like GPT consume approximately <strong>0.0002 to 0.0005 kWh per token</strong>, depending on the model size, hardware efficiency, and server load. Data center cooling systems typically use <strong>1 to 3 liters of water per kWh</strong>. Efficient systems use less water, while older or heavily loaded systems use more.
+    </p>
+
+    <p class="small-text" style="text-align: center; font-family: 'Times New Roman', serif; font-style: italic;">
+        Using the formula <strong>Water per token (liters) = Energy per token (kWh) × Water per kWh (liters)</strong>:
+    </p>
+    <p class="small-text" style="text-align: center; font-family: 'Times New Roman', serif; font-style: italic;">
+        Lower Bound:<br>
+        0.0002 kWh/token × 1.0 liters/kWh = 0.0002 liters (0.2 ml)<br><br>
+        Upper Bound:<br>
+        0.0005 kWh/token × 3.0 liters/kWh = 0.0015 liters (1.5 ml)
+    </p>
+        
+    <p class="small-text">
+        A study by researchers at the University of California, Riverside, and the University of Texas at Arlington in 2023 estimated the water usage for large AI models like GPT-3. Their findings indicate that processing a single query on GPT-3 (with about 750 tokens) could consume approximately <strong>0.5 liters (17 ounces)</strong> of water on average. This includes direct and indirect water usage, primarily for cooling the servers in data centers.
+    </p>
+
+    <p class="small-text" style="text-align: center; font-family: 'Times New Roman', serif; font-style: italic;">
+        0.5 liters ÷ 750 tokens = the water usage per token is approximately <strong>0.00067 liters (0.67 milliliters)</strong>.
+    </p>
+        
+    <p class="small-text">
+        Based on these calculations, I average the range to <strong>0.15–0.54 ml</strong>, reflecting evidence from multiple sources.
+    </p>
+    <h2>How much water has this project used?</h2>
+    <p class="small-text">As of now, this project has consumed <strong>39 bottles</strong> of water throughout testing and developing.</p>
+    <h2 style="margin-bottom: 5px;">Sources</h2>
+    <div style="display: flex; justify-content: center; gap: 20px;">
+        <div style="flex: 1 1 45%; padding-left: 10px; padding-right: 10px;">
+            <ul style="padding-left: 0; margin-top: 5px;">
+                <li><a href="https://oecd.ai/en/wonk/how-much-water-does-ai-consume" target="_blank">OECD AI</a></li>
+                <li><a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/using-gpt-4-to-generate-100-words-consumes-up-to-3-bottles-of-water-ai-data-centers-also-raise-power-and-water-bills-for-nearby-residents" target="_blank">Tom's Hardware</a></li>
+                <li><a href="https://podazine.com/?p=369" target="_blank">Podazine</a></li>
+                <li><a href="https://ar5iv.org/html/2304.03271" target="_blank">ar5iv</a></li>
+            </ul>
+        </div>
+        <div style="flex: 1 1 45%; padding-left: 10px; padding-right: 10px;">
+            <ul style="padding-left: 0; margin-top: 5px;">
+                <li><a href="https://deepgram.com/learn/how-ai-consumes-water" target="_blank">Deepgram</a></li>
+                <li><a href="https://www.theguardian.com/commentisfree/2024/mar/02/ais-craving-for-data-is-matched-only-by-a-runaway-thirst-for-water-and-energy" target="_blank">The Guardian</a></li>
+                <li><a href="https://www.washingtonpost.com/technology/2024/09/18/energy-ai-use-electricity-water-data-centers/" target="_blank">Washington Post</a></li>
+                <li><a href="https://www.independent.co.uk/tech/ai-water-energy-artificial-intelligence-b2409356.html" target="_blank">Independent</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="script.js"></script>
+  <audio id="backgroundAudio" autoplay loop>
+    <source src="https://cdn.glitch.me/c4b78eb3-58d6-4c67-b0f8-bcde8dabcdc7/Ocean_Waves_with_Seagulls_128kbps.mp3?v=1736704692347" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  
+  <script>
+  function notifyMainWindow() {
+    if (window.opener && !window.opener.closed) {
+      window.opener.postMessage("user-active", "*");
+    }
+  }
+
+  document.addEventListener("mousemove", notifyMainWindow);
+  document.addEventListener("click", notifyMainWindow);
+  document.addEventListener("keydown", notifyMainWindow);
+</script>
+
+</body>
+</html>
