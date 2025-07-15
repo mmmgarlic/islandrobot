@@ -9,6 +9,14 @@ dotenv.config(); // Load environment variables from .env file
 const app = express();
 app.use(express.json()); // Parse incoming JSON requests
 
+// === Double-slash fix middleware (PUT THIS RIGHT AFTER app DECLARATION) ===
+app.use((req, res, next) => {
+  if (req.url === '//' || req.url === '///' || req.url.endsWith('//')) {
+    return res.redirect('/');
+  }
+  next();
+});
+
 const port = process.env.PORT || 3000;
 
 const openai = new OpenAI({
