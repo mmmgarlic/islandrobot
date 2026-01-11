@@ -215,9 +215,8 @@ initializeChat();
 
   // Music toggle functionality
   const musicToggle = document.getElementById("music-toggle");
-  const audio = new Audio(
-    "https://cdn.glitch.me/c4b78eb3-58d6-4c67-b0f8-bcde8dabcdc7/Ocean_Waves_with_Seagulls_128kbps.mp3?v=1736704692347"
-  );
+  const audio = new Audio("/oceanwaves.mp3");
+
 
   let isPlaying = false;
 
