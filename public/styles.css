@@ -9,7 +9,7 @@ body, html {
 }
 
 #cliff {
-    background-image: url('https://cdn.glitch.global/c4b78eb3-58d6-4c67-b0f8-bcde8dabcdc7/cliff?v=1736629938231');
+ background-image: url("/cliff.png");
     background-size: cover;
     background-position: center;
     position: absolute;
@@ -389,7 +389,7 @@ padding-top: 10px;
 }
 
 #water {
-  background-image: url('https://cdn.glitch.global/c4b78eb3-58d6-4c67-b0f8-bcde8dabcdc7/water.png?v=1736943598286');
+  background-image: url("/water.png");
   background-repeat: repeat-x;
   background-size: 100vw auto;
   position: absolute;
